@@ -1,0 +1,28 @@
+{
+  "name": "hubot-harahe",
+  "version": "0.1.0",
+  "description": "Get restaurant data from Gurunavi API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/taketin/hubot-harahe.git"
+  },
+  "keywords": [
+    "hubot",
+    "hubot-scripts",
+    "grunavi"
+  ],
+  "author": "taketin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/taketin/hubot-harahe/issues"
+  },
+  "homepage": "https://github.com/taketin/hubot-harahe",
+  "dependencies": {
+    "node-rest-client": "^1.4.4",
+    "xml2js": "^0.4.4"
+  }
+}
