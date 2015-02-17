@@ -32,4 +32,4 @@ module.exports = (robot) ->
             msg.send "Category: #{items['category']}"
             msg.send "Address: #{items['address']}"
             msg.send "URL: #{items['url']}"
-            msg.send "Image: #{items['image_url'][0]['shop_image1']}"
+            setTimeout (-> msg.send "Image: #{items['image_url'][0]['shop_image1']}"), 500
