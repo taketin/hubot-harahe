@@ -21,15 +21,18 @@ module.exports = (robot) ->
 
     client.get req, (data, response) ->
       parseString data, (err, result) ->
-        totalCount = result['response']['total_hit_count']
-        offsetPage = Math.floor Math.random() * totalCount
-        req = "#{apiHost}keyid=#{keyId}&hit_per_page=#{hitPerPage}&offset_page=#{offsetPage}&address=#{encodeURIComponent(address)}"
+        try
+          totalCount = result['response']['total_hit_count']
+          offsetPage = Math.floor Math.random() * totalCount
+          req = "#{apiHost}keyid=#{keyId}&hit_per_page=#{hitPerPage}&offset_page=#{offsetPage}&address=#{encodeURIComponent(address)}"
 
-        client.get req, (data, response) ->
-          parseString data, (err, result) ->
-            items = result['response']['rest'][0]
-            msg.send "Recommend: #{items['name']}"
-            msg.send "Category: #{items['category']}"
-            msg.send "Address: #{items['address']}"
-            msg.send "URL: #{items['url']}"
-            setTimeout (-> msg.send "Image: #{items['image_url'][0]['shop_image1']}"), 500
+          client.get req, (data, response) ->
+            parseString data, (err, result) ->
+              items = result['response']['rest'][0]
+              msg.send "Recommend: #{items['name']}"
+              msg.send "Category: #{items['category']}"
+              msg.send "Address: #{items['address']}"
+              msg.send "URL: #{items['url']}"
+              setTimeout (-> msg.send "Image: #{items['image_url'][0]['shop_image1']}"), 500
+        catch
+          msg.send "Not Found..."
