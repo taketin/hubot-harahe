@@ -8,9 +8,9 @@ Client = require("node-rest-client").Client
 client = new Client()
 parseString = require('xml2js').parseString
 
-apiHost     = 'http://api.gnavi.co.jp/ver1/RestSearchAPI/?'
 keyId       = ''
 address     = ''
+apiHost     = 'http://api.gnavi.co.jp/RestSearchAPI/20150630/?'
 hitPerPage  = 1
 
 module.exports = (robot) ->
